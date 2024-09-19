@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juga D&D</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="./assets/images/logo3.jpg" alt="logo Play D&D" />
+    </header>
+    <main>
+      <!-- <audio src="./assets/audio/crawly.mp3" autoplay loop>
+        No se pudo reproducir el audio
+      </audio> -->
+      <h1>Bienvenido a Play D&D</h1>
+      <button type="text">Haz click aquí para comenzar</button>
+      <div class="miModal">
+        <h2>Comienza la aventura</h2>
+        <p>Elige tu raza y tu clase:</p>
+        <div class="card">
+          <img src="" alt="" />
+          <h3>Humano</h3>
+          <div class="" id="classModal">
+            <h4>Humano</h4>
+            <table>
+              <tr>
+                <th>Aumentos de características</th>
+                <th>Tamaño</th>
+                <th>Velocidad</th>
+              </tr>
+              <tr>
+                <td>Todas +1 (estándar de Humano)</td>
+                <td>Mediano</td>
+                <td>30 pies</td>
+              </tr>
+            </table>
+          </div>
+          <button type="text">Ver raza</button>
+          <button
+            type="text"
+            id="humanoBTN"
+            class="raceBTN"
+            onclick="crearPersonaje()"
+            value="humano"
+          >
+            Elegir raza
+          </button>
+          <div id="response"></div>
+        </div>
+        <div class="card">
+          <img src="" alt="" />
+          <h3>Tiefling</h3>
+          <div class="" id="classModal">
+            <h4></h4>
+            <table>
+              <tr>
+                <th>Aumentos de características</th>
+                <th>Tamaño</th>
+                <th>Velocidad</th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Carisma +2</li>
+                    <li>Destreza +2</li>
+                  </ul>
+                </td>
+                <td>Mediano</td>
+                <td>30 pies</td>
+              </tr>
+            </table>
+          </div>
+          <button type="text">Ver raza</button>
+          <button
+            type="text"
+            id="tieflingBTN"
+            class="raceBTN"
+            onclick="crearPersonaje()"
+            value="tiefling"
+          >
+            Elegir raza
+          </button>
+        </div>
+        <div class="card">
+          <img src="" alt="" />
+          <h3>Dracónido</h3>
+          <div class="" id="classModal">
+            <h4></h4>
+            <table>
+              <tr>
+                <th>Aumentos de características</th>
+                <th>Tamaño</th>
+                <th>Velocidad</th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Fuerza +2</li>
+                    <li>Carisma +1</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <button type="text">Ver raza</button>
+          <button
+            type="text"
+            id="draconicoBTN"
+            class="raceBTN"
+            onclick="crearPersonaje()"
+            value="draconido"
+          >
+            Elegir raza
+          </button>
+        </div>
+        <div class="card">
+          <img src="" alt="" />
+          <h3>Elfo</h3>
+          <div class="" id="classModal">
+            <h4></h4>
+            <table>
+              <tr>
+                <th>Aumentos de características</th>
+                <th>Tamaño</th>
+                <th>Velocidad</th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Destreza +2</li>
+                    <li>Inteligencia +1</li>
+                    <li>Sabiduría +1</li>
+                    <li>Carisma +1</li>
+                  </ul>
+                </td>
+                <td>Mediano</td>
+                <td>30 pies</td>
+              </tr>
+            </table>
+          </div>
+          <button type="text">Ver raza</button>
+          <button
+            type="text"
+            id="elfoBTN"
+            class="raceBTN"
+            onclick="crearPersonaje()"
+            value="elfo"
+          >
+            Elegir raza
+          </button>
+        </div>
+        <div class="card">
+          <img src="" alt="" />
+          <h3>Semiorco</h3>
+          <div class="" id="classModal">
+            <h4></h4>
+            <table>
+              <tr>
+                <th>Aumentos de características</th>
+                <th>Tamaño</th>
+                <th>Velocidad</th>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Fuerza +2</li>
+                    <li>Constitución +1</li>
+                  </ul>
+                </td>
+                <td>Mediano</td>
+                <td>30 pies</td>
+              </tr>
+            </table>
+          </div>
+          <button type="text">Ver raza</button>
+          <button
+            type="text"
+            id="semiorcoBTN"
+            class="raceBTN"
+            onclick="crearPersonaje()"
+            value="semiorco"
+          >
+            Elegir raza
+          </button>
+        </div>
+      </div>
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
