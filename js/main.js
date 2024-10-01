@@ -1,3 +1,9 @@
+const modal = document.querySelector('.modal')
+const close = document.querySelector('.close')
+
+const abrirModal = () => {modal.style.display = "block"}
+const cerrarModal = () => {modal.style.display = "none"}
+
 let razas = [
     {
         raza: "humano",
@@ -56,28 +62,29 @@ let razas = [
     }
 ]
 
-let raceBTN = document.getElementsByClassName('raceBTN')
-let resp = document.getElementById('response')
+const clases = ['guerrero', 'mago', 'brujo', 'explorador']
 
-
-function elegirPersonaje() {
+function elegirPersonaje(race) {
     for (let i = 0; i < razas.length; i++) {
-        if (razas[i].raza === raceBTN[i].value) {
-            return razas[i].raza
+        if (razas[i].raza === race) {
+            return razas[i]
         }
     }
 }
 
-function crearPersonaje() {
+const elegirClase = function() {
+    
+}
 
-    const razaSeleccionada = elegirPersonaje()
-
+function crearPersonaje(race) {
+    const razaSeleccionada = elegirPersonaje(race)
     class Personaje {
-        constructor(raza) {
+        constructor(raza, clase, atributos) {
             this.raza = raza
+            this.clase = clase
+            this.atributos = atributos
         }
     }
-
-    let personaje1 = new Personaje(razaSeleccionada)
+    let personaje1 = new Personaje(razaSeleccionada.raza, 'a', razaSeleccionada.atributos)
     console.log(personaje1)
 }
