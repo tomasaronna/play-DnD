@@ -86,5 +86,12 @@ function crearPersonaje(race) {
         }
     }
     let personaje1 = new Personaje(razaSeleccionada.raza, 'a', razaSeleccionada.atributos)
-    console.log(personaje1)
+    
+    // ESTO SE BORRA
+    personajesCreados.push(personaje1)
 }
+
+
+// ESTO SE BORRA
+let personajesCreados = []
+console.log(personajesCreados)
