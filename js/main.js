@@ -83,7 +83,7 @@ razas.forEach(raza => {
               <li>Sabiduría: ${raza.atributos.sabiduria}</li>
               <li>Carisma: ${raza.atributos.carisma}</li>
             </ul>
-            <button type="button" class="raceButton" data-raza="${raza.raza}" onClick=elegirPersonaje("${raza.raza}")>Elegir raza</button>
+            <button type="button" class="raceButton" data-raza="${raza.raza}" onClick=crearPersonaje("${raza.raza}")>Elegir raza</button>
         </div>
     `
     
@@ -109,6 +109,7 @@ close.addEventListener('click', () => {
 })
 
 function elegirPersonaje(race) {
+    console.log(race)
     for (let i = 0; i < razas.length; i++) {
         if (razas[i].raza === race) {
             return razas[i]
@@ -116,7 +117,7 @@ function elegirPersonaje(race) {
     }
 }
 
-
+console.log(elegirPersonaje())
 
 // const elegirClase = function () {
 
