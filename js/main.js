@@ -63,15 +63,16 @@ let razas = [
 
 const clases = ['guerrero', 'mago', 'brujo', 'explorador']
 
-const modal = document.querySelector('.modal')
-const close = document.querySelector('.close')
-const start = document.querySelector('#start')
+const tirarDados = () => 1 + Math.floor(Math.random() * 20)
 
+const modal = document.querySelector('.modal')
+const start = document.querySelector('#start')
 let modalContent
+
 razas.forEach(raza => {
     modalContent += `
         <div class="card">
-            <img src="${raza.img}"
+            <img src="${raza.img}" alt="Raza ${raza.raza}">
             <h2>${raza.raza}</h2>
             <h3>Atributos:</h3>
             <ul>
@@ -82,9 +83,10 @@ razas.forEach(raza => {
               <li>Sabiduría: ${raza.atributos.sabiduria}</li>
               <li>Carisma: ${raza.atributos.carisma}</li>
             </ul>
-            <button type="button" class="raceButton" data-raza="${raza.raza}">Elegir raza</button>
+            <button type="button" class="raceButton" data-raza="${raza.raza}" onClick=elegirPersonaje("${raza.raza}")>Elegir raza</button>
         </div>
     `
+    
     modal.innerHTML = `
         <div class="modalContent">
             <span class="close">&times</span>
@@ -93,9 +95,17 @@ razas.forEach(raza => {
     `
 });
 
+
+
 start.addEventListener('click', () => {
     modal.style.display = "block"
+})
 
+
+const close = document.querySelector('.close')
+
+close.addEventListener('click', () => {
+    modal.style.display = "none"
 })
 
 function elegirPersonaje(race) {
@@ -105,6 +115,8 @@ function elegirPersonaje(race) {
         }
     }
 }
+
+
 
 // const elegirClase = function () {
 
