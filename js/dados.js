@@ -1,0 +1,1 @@
+export const tirarDados = () => 1 + Math.floor(Math.random() * 20)

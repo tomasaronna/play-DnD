@@ -17,6 +17,11 @@
   color: white;
 }
 .modal .modalContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   background-color: #fff;
   border-radius: 10px;
   position: absolute;
