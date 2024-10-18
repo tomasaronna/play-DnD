@@ -63,7 +63,30 @@ let razas = [
 
 const modal = document.querySelector('.modal')
 const start = document.querySelector('#start')
+
+start.addEventListener('click', () => {
+    modal.style.display = "block"
+
+    if (localStorage.getItem("personaje")) {
+
+        let pjCreado = confirm('ya hay un personaje creado, quieres empezar el juego con este personaje?')
+
+        if (pjCreado == true) {
+            console.log("Hay un personaje creado")
+        } else {
+            localStorage.clear()
+        }
+    }
+})
+
+
+
 let modalContent = ""
+const limpiarModal = () => modalContent = ''
+// let modalFijo = `
+//     <div id="modalFijo" class="modalContent">
+//         <span class="close">&times</span>
+//     </div>`
 
 razas.forEach(raza => {
     const atributosString = JSON.stringify(raza.atributos)
@@ -92,21 +115,6 @@ razas.forEach(raza => {
     `
 });
 
-start.addEventListener('click', () => {
-    modal.style.display = "block"
-
-    if (localStorage.getItem("personaje")) {
-
-        let pjCreado = confirm('ya hay un personaje creado, quieres empezar el juego con este personaje?')
-
-        if (pjCreado == true) {
-            console.log("Hay un personaje creado")
-        } else {
-            localStorage.clear()
-        }
-    }
-})
-
 const close = document.querySelector('.close')
 close.addEventListener('click', () => {
     let resp = confirm('Deseas salir?')
@@ -129,40 +137,28 @@ const clases = [
         descripcion: "Todos los guerreros comparten un dominio magistral de las armas y armaduras, y un exhaustivo conocimiento de las habilidades del combate. Además, están muy relacionados con la muerte, tanto repartiéndola como mirándola fijamente, desafiantes.",
         img: "../assets/images/guerrero.webp",
         vida: 10,
-        armas: {
-            arma1: "Espada larga",
-            arma3: "Hacha"
-        }
+        arma: "Espada larga",
     },
     {
         nombre: "Mago",
         descripcion: "Los magos son los practicantes supremos de la magia, definidos y unidos como una clase por los hechizos que conjuran. A partir de la sutil onda de la magia que impregna el cosmos, los magos lanzan explosivos hechizos de fuego, estacas de hielo y bolas ácidas.",
         img: "../assets/images/mago.webp",
         vida: 6,
-        armas: {
-            arma1: "Bastón",
-            arma2: "Daga"
-        }
+        arma: "Bastón"
     },
     {
         nombre: "Brujo",
         descripcion: "Los brujos son buscadores del conocimiento que se encuentra escondido en el multiverso. A través de pactos hechos con seres poderosos de poder sobrenatural, los brujos desatan efectos mágicos tanto sutiles como espectaculares y recolectan secretos arcanos para potenciar su propio poder.",
         img: "../assets/images/brujo.webp",
         vida: 8,
-        armas: {
-            arma1: "Ballesta ligera",
-            arma2: "Espada corta"
-        },
+        arma: "Espada corta"
     },
     {
         nombre: "Explorador",
         descripcion: "Lejos del bullicio de las ciudades y pueblos, más allá de las defensas que mantienen a las granjas más lejanas protegidas de los terrores de la naturaleza, en medio de tupidos bosques sin caminos y a través de enormes y vacías llanuras, los exploradores mantienen su interminable guardia.",
         img: "../assets/images/explorador.webp",
         vida: 10,
-        armas: {
-            arma1: "Arco",
-            arma2: "Espada corta"
-        },
+        arma: "Arco"
     }
 ]
 
@@ -181,17 +177,13 @@ function seleccionarRaza(raza, atrib) {
 }
 
 let claseSeleccionada
-function seleccionarClase(b) {
-    claseSeleccionada = b;
+let armaClase
+function seleccionarClase(clase, arma) {
+    claseSeleccionada = clase;
+    armaClase = arma
+    
     generarInputNombre()
 }
-
-
-const limpiarModal = () => modalContent = ''
-// let modalFijo = `
-//     <div id="modalFijo" class="modalContent">
-//         <span class="close">&times</span>
-//     </div>`
 
 let generarInputNombre = () => {
     limpiarModal()
@@ -225,12 +217,8 @@ function generarClases() {
                     <h2>${clase.nombre}</h2>
                     <h3>Descripción:</h3>
                     <p>${clase.descripcion}</p>
-                    <h3>Compatibilidad con armas:</h3>
-                    <ul>
-                    <li>${clase.armas.arma1}</li>
-                    <li>${clase.armas.arma2}</li>
-                    </ul>
-                    <button type="button" class="classButton" onClick="seleccionarClase('${clase.nombre}')">Elegir clase</button>
+                    <p>Arma: ${clase.arma}</p>
+                    <button type="button" class="classButton" onClick="seleccionarClase('${clase.nombre}', '${clase.arma}')">Elegir clase</button>
                 </div>
                 `
         })
@@ -257,18 +245,16 @@ function elegirClase(clase) {
 }
 
 function crearPersonaje() {
-    console.log(razaSeleccionada)
-    console.log(claseSeleccionada)
-    console.log(namePJ)
     class Personaje {
-        constructor(raza, clase, atributos, name) {
-            this.raza = raza
-            this.clase = clase
-            this.atributos = atributos
+        constructor(name, raza, atributos, clase, arma) {
             this.name = name
+            this.raza = raza
+            this.atributos = atributos
+            this.clase = clase
+            this.arma = arma
         }
     }
-    let personaje1 = new Personaje(razaSeleccionada, claseSeleccionada, atributos, namePJ)
+    let personaje1 = new Personaje(namePJ, razaSeleccionada, atributos, claseSeleccionada, armaClase)
     console.log(personaje1)
 
     const personaje = JSON.stringify(personaje1)
