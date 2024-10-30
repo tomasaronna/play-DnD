@@ -1,6 +1,6 @@
-import { razaSeleccionada, atributos } from './razas.js';
-import { claseSeleccionada } from './clases.js';
-import { namePJ } from './main.js'; // Assuming namePJ is defined in main.js
+// import { razaSeleccionada, atributos } from 'razas.js'
+// import { claseSeleccionada } from 'clases.js';
+// import { namePJ, armaClase } from 'main.js';
 
 function crearPersonaje() {
     class Personaje {
@@ -17,22 +17,21 @@ function crearPersonaje() {
 
     const personaje = JSON.stringify(personaje1)
     localStorage.setItem('personaje', personaje)
+
+    comenzarJuego()
 }
 
-export { crearPersonaje };
+// let textosCombate
 
-let textosCombate
-
-
-function textosCombate(){
-    switch(clase){
-        case "Guerrero": 
-        textosCombate: {
-            ataques: {
-                "Corres hacia el enemigo y lo golpeas con tu espada larga, provocando ${daño}",
-                "Saltas hacia el enemigo y lo cortas con tu arma, provocando ${daño}. El enemigo pierde mucha sangre.",
-                "Atraviesas al enemigo, al sacar tu arma, escuchas como gime de dolor, provocando ${daño}."
-            }
-        }
-    }
-}
+// function textosCombate(){
+//     switch(clase){
+//         case "Guerrero": 
+//         textosCombate: {
+//             ataques: {
+//                 "Corres hacia el enemigo y lo golpeas con tu espada larga, provocando ${daño}",
+//                 "Saltas hacia el enemigo y lo cortas con tu arma, provocando ${daño}. El enemigo pierde mucha sangre.",
+//                 "Atraviesas al enemigo, al sacar tu arma, escuchas como gime de dolor, provocando ${daño}."
+//             }
+//         }
+//     }
+// }

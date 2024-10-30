@@ -1,12 +1,28 @@
-export const tiradaJugador = () => Math.floor(Math.random() * 20) + 1
-export const tiradaDM = () => Math.floor(Math.random() * 20) + 1
+const tiradaJugador = () => Math.floor(Math.random() * 20) + 1;
+const tiradaDM = () => Math.floor(Math.random() * 20) + 1;
 
-let resultado_dado_jugador
-let resultado_dado_DM
-let daño
-let dañoMax = 5
-let dañoMin = 1
+let resultado_dado_jugador;
+let resultado_dado_DM;
+let dañoJugador;
+let dañoDM;
+const dañoMax = 5;
+const dañoMin = 1;
 
+function calcularDaño(tirada) {
+    if (tirada === 1) {
+        return 0;
+    } else if (tirada === 20) {
+        return dañoMax;
+    } else if (tirada <= 5) {
+        return dañoMin;
+    } else if (tirada > 5 && tirada <= 10) {
+        return 2;
+    } else if (tirada > 10 && tirada <= 15) {
+        return 3;
+    } else if (tirada > 15 && tirada <= 19) {
+        return 4;
+    }
+}
 
 function evaluarTirada() {
     const resultado_jugador = tiradaJugador();
@@ -14,37 +30,32 @@ function evaluarTirada() {
 
     if (resultado_jugador === 1) {
         resultado_dado_jugador = "Pifia";
+        dañoJugador = 0;
     } else if (resultado_jugador === 20) {
         resultado_dado_jugador = "Crítico";
-        daño = dañoMax
+        dañoJugador = dañoMax;
     } else {
         resultado_dado_jugador = resultado_jugador;
-        if(resultado_jugador <= 5){
-            daño = dañoMin
-        } else if(resultado_jugador > 5 && resultado_jugador <= 10){
-            daño = 2
-        } else if(resultado_jugador > 10 && resultado_jugador <=15){
-            daño = 3
-        } else if(resultado_jugador > 15 && resultado_jugador <= 19){
-            daño = 4
-        }
+        dañoJugador = calcularDaño(resultado_jugador);
     }
+
 
     if (resultado_DM === 1) {
         resultado_dado_DM = "Pifia";
+        dañoDM = 0;
     } else if (resultado_DM === 20) {
         resultado_dado_DM = "Crítico";
-        daño = dañoMax
+        dañoDM = dañoMax;
     } else {
         resultado_dado_DM = resultado_DM;
-    }
-    if(resultado_jugador <= 5){
-        daño = dañoMin
-    } else if(resultado_DM > 5 && resultado_DM <= 10){
-        daño = 2
-    } else if(resultado_DM > 10 && resultado_DM <=15){
-        daño = 3
-    } else if(resultado_DM > 15 && resultado_DM <= 19){
-        daño = 4
+        dañoDM = calcularDaño(resultado_DM);
     }
 }
+
+function combate() {
+    console.log("Comienza el combate:");
+    evaluarTirada();
+}
+
+const mostrar_tirada_jugador = () => modal.innerText = `Tirada del jugador: ${resultado_dado_jugador}, Daño infligido: ${dañoJugador}`
+const mostrar_tirada_DM = () => modal.innerText = `Tirada del DM: ${resultado_dado_DM}, Daño infligido: ${dañoDM}`;

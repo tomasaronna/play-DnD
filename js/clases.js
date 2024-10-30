@@ -1,15 +1,17 @@
 const clases = [
-    { nombre: "Guerrero", descripcion: "Todos los guerreros comparten un dominio magistral de las armas y armaduras, y un exhaustivo conocimiento de las habilidades del combate...", img: "../assets/images/guerrero.webp", vida: 10, arma: "Espada larga y escudo" },
-    { nombre: "Mago", descripcion: "Los magos son los practicantes supremos de la magia...", img: "../assets/images/mago.webp", vida: 6, armas: "Bastón" },
-    { nombre: "Brujo", descripcion: "Los brujos son buscadores del conocimiento...", img: "../assets/images/brujo.webp", vida: 8, armas: "Espada corta" },
-    { nombre: "Explorador", descripcion: "Lejos del bullicio de las ciudades y pueblos...", img: "../assets/images/explorador.webp", vida: 10, armas: "Arco" }
+    { nombre: "Guerrero", descripcion: "Todos los guerreros comparten un dominio magistral de las armas y armaduras, y un exhaustivo conocimiento de las habilidades del combate...", img: "../assets/images/guerrero.webp", vida: 20, arma: "Espada larga y escudo" },
+    { nombre: "Mago", descripcion: "Los magos son los practicantes supremos de la magia...", img: "../assets/images/mago.webp", vida: 12, arma: "Bastón" },
+    { nombre: "Brujo", descripcion: "Los brujos son buscadores del conocimiento...", img: "../assets/images/brujo.webp", vida: 15, arma: "Espada corta" },
+    { nombre: "Explorador", descripcion: "Lejos del bullicio de las ciudades y pueblos...", img: "../assets/images/explorador.webp", vida: 17, arma: "Arco" }
 ];
 
-let claseSeleccionada;
-
-function seleccionarClase(clase) {
+let claseSeleccionada
+let armaClase
+function seleccionarClase(clase, arma) {
     claseSeleccionada = clase;
-    generarInputNombre();
+    armaClase = arma
+
+    generarInputNombre()
 }
 
 function elegirClase(clase) {
@@ -20,4 +22,4 @@ function elegirClase(clase) {
     }
 }
 
-export { clases, seleccionarClase, claseSeleccionada, elegirClase };
+// export { clases, seleccionarClase, claseSeleccionada, elegirClase, armaClase };

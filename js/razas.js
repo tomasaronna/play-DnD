@@ -24,4 +24,4 @@ function elegirPersonaje(race) {
     }
 }
 
-export { razas, seleccionarRaza, razaSeleccionada, atributos, elegirPersonaje };
+// export { razas, seleccionarRaza, razaSeleccionada, atributos, elegirPersonaje };
